@@ -11,11 +11,19 @@ class Renderer {
         let curr_meat = module.meat;
         let hello = 5;
         let bye = 6;
-        this.renderFriends();
+        this.renderUserInfo(curr_user);
+        this.renderFriends(curr_user);
     }
-    renderFriends() {
+    renderUserInfo(user) {
+        let fullname = user.first_name + " " + user.last_name;
+        const source = $('#user-template').html();
+        //const template = Handlebars.compile(source);
+    }
+    renderFriends(user) {
         const source = $('#friends-template').html();
         const template = Handlebars.compile(source);
+        const newHTML = template({ friendsArr: user.friends });
+        $('.friends-container').append(newHTML);
         let num = 7;
     }
 }

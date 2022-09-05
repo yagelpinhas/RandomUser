@@ -32,7 +32,7 @@ class User {
                     let friend_first_name = res.results[i].name.first;
                     let friend_last_name = res.results[i].name.last;
                     let friend_full_name = friend_first_name + " " + friend_last_name;
-                    this.friends[i - 1].name = friend_full_name;
+                    this.friends[i - 1] = { name: friend_full_name };
                 }
                 console.log("End of generating a user: USER CLASS");
             });

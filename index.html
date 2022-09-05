@@ -15,7 +15,8 @@
 
 <body>
     <div class="container">	
-        <div class="user-container"></div>	
+        <div class="user-container">
+        </div>	
         <div class="quote-container"></div>	
         <div class="content-container">	
             <div class="pokemon-container"></div>	
@@ -24,31 +25,34 @@
         <div class="friends">	
             <h4>Friends</h4>	
             <div class="friends-container">	
-                {{#each friends}}
-                <div>{{}}</div>
             </div>	
         </div>
         <button id="generateUser">Generate User!</button>	
     </div>
 
     <script id="friends-template" type="text/x-handlebars-template">
+        {{#each friendsArr}}
         <div> {{name}}</div>
+        {{/each}}
     </script>
 
     <script id="quote-template" type="text/x-handlebars-template">
-        <div> {{quote}}</div>
+        <p> {{quote}}</p>
     </script>
 
     <script id="user-template" type="text/x-handlebars-template">
-        <div> {{name}}</div>
+        <img id="profile-pic" src="{{profilePic}}">
+        <div class="user-info"> {{name}}</div>
+        <span class="user-info">{{city}}</span> <span class="user-info">,</span> <span class="user-info">{{state}}</span>
     </script>
 
     <script id="pokemon-template" type="text/x-handlebars-template">
-        <div> {{something}}</div>
+        <img id="pokemon-image" src="{{pokemonPic}}">
+        <div id="pokemon-text">{{name}}</div>
     </script>
 
     <script id="meat-template" type="text/x-handlebars-template">
-        <div> {{aboutMeContent}}</div>
+        <div class="meat-text"> {{about}}</div>
     </script>
 
 
