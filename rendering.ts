@@ -18,6 +18,7 @@ class Renderer{
         this.renderFriends(curr_user)
         this.renderKanye(curr_kanye)
         this.renderMeat(curr_meat)
+        this.renderPokemon(curr_pokemon)
     }
     renderUserInfo(user: User){
         let fullname: string = user.first_name+" "+user.last_name
