@@ -96,4 +96,10 @@ class Module {
             yield this.meat.generate();
         });
     }
+    changeFields(obj) {
+        this.kanye = obj.kanye;
+        this.meat = obj.meat;
+        this.pokemon = obj.pokemon;
+        this.user = obj.user;
+    }
 }

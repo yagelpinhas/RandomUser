@@ -99,6 +99,13 @@ class User{
         await this.kanye.generate()
         await this.meat.generate()
     }
+
+    changeFields(obj: any){
+        this.kanye=obj.kanye
+        this.meat=obj.meat
+        this.pokemon=obj.pokemon
+        this.user=obj.user
+    }
   }
   
   

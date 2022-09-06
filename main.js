@@ -10,7 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 let module = new Module();
 let renderer = new Renderer();
-//localStorage.setItem('saved',JSON.stringify({}))
 $("body").on("click", "#generateUser", function () {
     return __awaiter(this, void 0, void 0, function* () {
         yield (module.generate()).then(function () {
@@ -29,10 +28,11 @@ $("body").on("click", "#loadUser", function () {
     return __awaiter(this, void 0, void 0, function* () {
         let obj = JSON.parse(localStorage.saved);
         let newModule = new Module();
-        newModule.kanye = obj.kanye;
-        newModule.meat = obj.meat;
-        newModule.pokemon = obj.pokemon;
-        newModule.user = obj.user;
+        //newModule.kanye=obj.kanye
+        //newModule.meat=obj.meat
+        //newModule.pokemon=obj.pokemon
+        //newModule.user=obj.user
+        newModule.changeFields(obj);
         let b = 30;
         renderer.render(newModule);
     });

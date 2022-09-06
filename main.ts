@@ -1,7 +1,7 @@
 let module = new Module()
 let renderer = new Renderer()
 
-//localStorage.setItem('saved',JSON.stringify({}))
+
 $("body").on("click", "#generateUser", async function() {
     await (module.generate()).then(function(){
         renderer.render(module)
@@ -23,10 +23,11 @@ $("body").on("click", "#saveUser", async function() {
 $("body").on("click", "#loadUser", async function() {
     let obj = JSON.parse(localStorage.saved)
     let newModule: Module = new Module()
-    newModule.kanye=obj.kanye
-    newModule.meat=obj.meat
-    newModule.pokemon=obj.pokemon
-    newModule.user=obj.user
+    //newModule.kanye=obj.kanye
+    //newModule.meat=obj.meat
+    //newModule.pokemon=obj.pokemon
+    //newModule.user=obj.user
+    newModule.changeFields(obj)
     let b: number = 30;
     renderer.render(newModule)
 });
