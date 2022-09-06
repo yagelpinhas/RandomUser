@@ -46,7 +46,8 @@ class Pokemon {
     }
     generate() {
         return __awaiter(this, void 0, void 0, function* () {
-            $.get("https://pokeapi.co/api/v2/pokemon/20/").then(res => {
+            let randomNumber = Math.floor(Math.random() * 900);
+            $.get(`https://pokeapi.co/api/v2/pokemon/${randomNumber}/`).then(res => {
                 this.name = res.name;
                 this.pokemonPic = res.sprites.front_default;
                 console.log("END OF POKEMON");

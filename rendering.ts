@@ -52,14 +52,16 @@ class Renderer{
     renderPokemon(pokemon: Pokemon){
         const source = $('#pokemon-template').html();
         const template = Handlebars.compile(source);
-        const newHTML = template({pokemonPic: pokemon.pokemonPic, name:pokemon.name});
+        let fixedName: string = pokemon.name[0].toUpperCase() + pokemon.name.substring(1)
+        let str: string = "Favorite Pokemon: "+fixedName;
+        const newHTML = template({pokemonPic: pokemon.pokemonPic, name: str});
         $('.pokemon-container').append(newHTML);
     }
 
     emptyContainers(){
         $(".user-container").empty();
         $(".friends-container").empty();
-        $(".quote-cotainer").empty();
+        $(".quote-container").empty();
         $(".meat-container").empty();
         $(".pokemon-container").empty();
     }
