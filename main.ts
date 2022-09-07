@@ -1,10 +1,10 @@
-let module = new Module()
+let moduleData = new Manager()
 let renderer = new Renderer()
 
 
 $("body").on("click", "#generateUser", async function() {
-    await (module.generate()).then(function(){
-        renderer.render(module)
+    await (moduleData.generate()).then(function(){
+        renderer.render(moduleData)
         let a : number = 800;
     })
     
@@ -12,7 +12,7 @@ $("body").on("click", "#generateUser", async function() {
 
 
 $("body").on("click", "#saveUser", async function() {
-    localStorage.setItem('saved',JSON.stringify(module))
+    localStorage.setItem('saved',JSON.stringify(moduleData))
 
 
     
@@ -22,7 +22,7 @@ $("body").on("click", "#saveUser", async function() {
 
 $("body").on("click", "#loadUser", async function() {
     let obj = JSON.parse(localStorage.saved)
-    let newModule: Module = new Module()
+    let newModule: Manager = new Manager()
     //newModule.kanye=obj.kanye
     //newModule.meat=obj.meat
     //newModule.pokemon=obj.pokemon

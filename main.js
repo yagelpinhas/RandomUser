@@ -8,26 +8,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-let module = new Module();
+let moduleData = new Manager();
 let renderer = new Renderer();
 $("body").on("click", "#generateUser", function () {
     return __awaiter(this, void 0, void 0, function* () {
-        yield (module.generate()).then(function () {
-            renderer.render(module);
+        yield (moduleData.generate()).then(function () {
+            renderer.render(moduleData);
             let a = 800;
         });
     });
 });
 $("body").on("click", "#saveUser", function () {
     return __awaiter(this, void 0, void 0, function* () {
-        localStorage.setItem('saved', JSON.stringify(module));
+        localStorage.setItem('saved', JSON.stringify(moduleData));
         let a = 30;
     });
 });
 $("body").on("click", "#loadUser", function () {
     return __awaiter(this, void 0, void 0, function* () {
         let obj = JSON.parse(localStorage.saved);
-        let newModule = new Module();
+        let newModule = new Manager();
         //newModule.kanye=obj.kanye
         //newModule.meat=obj.meat
         //newModule.pokemon=obj.pokemon

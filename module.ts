@@ -81,7 +81,7 @@ class User{
   }
 
   
-  class Module{
+  class Manager{
     user: User;
     pokemon: Pokemon;
     kanye : Kanye;

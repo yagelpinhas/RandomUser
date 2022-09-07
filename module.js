@@ -81,7 +81,7 @@ class Meat {
         });
     }
 }
-class Module {
+class Manager {
     constructor() {
         this.user = new User();
         this.pokemon = new Pokemon();

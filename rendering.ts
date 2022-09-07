@@ -5,7 +5,7 @@ class Renderer{
     constructor(){
 
     }
-    render(module: Module){
+    render(module: Manager){
         this.emptyContainers()
         let curr_user: User = module.user
         let curr_pokemon: Pokemon = module.pokemon
