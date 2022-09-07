@@ -30,10 +30,24 @@
             <div class="friends-container">	
             </div>	
         </div>
-        <button id="generateUser">Generate User!</button>
-        <button id="saveUser">Save User Page</button>
-        <button id="loadUser">Load User Page</button>	
+        <div class="options">
+            
+            <button id="generateUser">Generate User!</button>
+            <button id="saveUser">Save User Page</button>
+        <!-- <button id="loadUser">Load User Page</button>	 -->
+            <div class="dropup">
+                <button id="loadUser">Load User</button>
+                <div id="dropup-content">
+             </div>
+            </div>
+         </div>
+
     </div>
+    <script id="toolbar-template" type="text/x-handlebars-template">
+        {{#each namesArr}}
+        <p class="tool">{{name}}</p>
+        {{/each}}
+    </script>
 
     <script id="friends-template" type="text/x-handlebars-template">
         {{#each friendsArr}}

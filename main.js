@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 let moduleData = new Manager();
 let renderer = new Renderer();
+let lsmanager = new localStorageManager();
 $("body").on("click", "#generateUser", function () {
     return __awaiter(this, void 0, void 0, function* () {
         yield (moduleData.generate()).then(function () {
@@ -20,20 +21,30 @@ $("body").on("click", "#generateUser", function () {
 });
 $("body").on("click", "#saveUser", function () {
     return __awaiter(this, void 0, void 0, function* () {
-        localStorage.setItem('saved', JSON.stringify(moduleData));
+        //localStorage.setItem('saved',JSON.stringify(moduleData))
+        lsmanager.addManager(moduleData);
         let a = 30;
     });
 });
+/*
+
+
+$("body").on("click", "#loadUser", async function() {
+    let obj = JSON.parse(localStorage.saved)
+    let newModule: Manager = new Manager()
+    newModule.changeFields(obj)
+    let b: number = 30;
+    renderer.render(newModule)
+});
+
+*/
+//new function
 $("body").on("click", "#loadUser", function () {
-    return __awaiter(this, void 0, void 0, function* () {
-        let obj = JSON.parse(localStorage.saved);
-        let newModule = new Manager();
-        //newModule.kanye=obj.kanye
-        //newModule.meat=obj.meat
-        //newModule.pokemon=obj.pokemon
-        //newModule.user=obj.user
-        newModule.changeFields(obj);
-        let b = 30;
-        renderer.render(newModule);
-    });
+    let saved_people = lsmanager.getPeopleSaved();
+    renderer.renderSavedPeople(saved_people);
+});
+$("body").on("click", ".tool", function () {
+    let nameToRender = $(this).text();
+    let relevantManager = lsmanager.getManager(nameToRender);
+    renderer.render(relevantManager);
 });

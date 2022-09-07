@@ -66,4 +66,17 @@ class Renderer{
         $(".pokemon-container").empty();
     }
 
+    renderSavedPeople(managers: any[]){
+        $('#dropup-content').empty()
+        const source = $('#toolbar-template').html();
+        const template = Handlebars.compile(source);
+        let names = []
+        for(let i=0;i<managers.length;i++){
+            let personName = JSON.parse(managers[i]).user.first_name
+            names.push({name: personName})
+        }
+        const newHTML = template({namesArr: names});
+        $('#dropup-content').append(newHTML);
+    }
+
 }

@@ -103,3 +103,24 @@ class Manager {
         this.user = obj.user;
     }
 }
+class localStorageManager {
+    constructor() {
+        localStorage.setItem("managers", "[]");
+    }
+    addManager(manager) {
+        let arr = JSON.parse(localStorage.managers);
+        arr.push(JSON.stringify(manager));
+        localStorage.managers = JSON.stringify(arr);
+    }
+    getManager(name) {
+        let arr = JSON.parse(localStorage.managers);
+        for (let i = 0; i < arr.length; i++) {
+            if (JSON.parse(arr[i]).user.first_name == name) {
+                return JSON.parse(arr[i]);
+            }
+        }
+    }
+    getPeopleSaved() {
+        return JSON.parse(localStorage.managers);
+    }
+}
